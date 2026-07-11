@@ -56,7 +56,7 @@ function Index() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden px-6 pb-16 pt-40">
+        <section className="relative isolate overflow-hidden px-6 pb-16 pt-40">
           {/* Looping ambient gradient video background */}
           <HeroVideoBg
             src="https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260711_134859_4e140d76-0d2e-4301-b293-276673b63c67.mp4"
