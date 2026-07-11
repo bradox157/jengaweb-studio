@@ -61,11 +61,11 @@ function Index() {
             className="absolute inset-0 -z-20 bg-cover bg-center"
             style={{
               backgroundImage:
-                "url(https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260711_162727_42c5c49c-be6f-451f-998c-a1a78c4e99f2.png)",
+                "url(https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260711_172141_369c3e48-3aab-4301-8491-921b367625e2.png)",
             }}
           />
           {/* Darken/blend the image into the background color so text stays readable */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/75 to-background" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/40 to-background" />
 
           {/* Ambient animated gradient blobs */}
           <motion.div
