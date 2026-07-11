@@ -93,7 +93,7 @@ function Index() {
           </div>
 
           <div className="relative mx-auto max-w-7xl">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl rounded-3xl border border-white/15 bg-white/[0.05] p-8 shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:p-12">
               <h1 className="font-display flex flex-wrap items-baseline gap-x-3 gap-y-1 text-6xl font-bold leading-[0.9] tracking-tight md:gap-x-5 md:text-8xl">
                 {"We build websites that".split(" ").map((word, i) => (
                   <motion.span
