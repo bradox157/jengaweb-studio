@@ -63,7 +63,7 @@ function Index() {
             muted
             playsInline
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
+            className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
           >
             <source
               src="https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260711_134859_4e140d76-0d2e-4301-b293-276673b63c67.mp4"
@@ -71,7 +71,7 @@ function Index() {
             />
           </video>
           {/* Fade video to background color toward the bottom so it blends into the rest of the page */}
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background/10 via-background/40 to-background" />
 
           {/* Ambient animated gradient blobs */}
           <motion.div
