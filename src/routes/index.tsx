@@ -40,12 +40,12 @@ function Index() {
                 >
                   View Portfolio
                 </Link>
-                <a
-                  href="#services"
+                <Link
+                  to="/services"
                   className="rounded-lg bg-secondary px-8 py-4 font-bold text-secondary-foreground transition-colors hover:bg-secondary/80"
                 >
                   Our Process
-                </a>
+                </Link>
               </div>
             </div>
 
