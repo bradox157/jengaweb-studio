@@ -132,6 +132,25 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 22s;
+  }
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

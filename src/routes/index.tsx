@@ -1,9 +1,36 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectMarquee } from "@/components/ProjectMarquee";
+import { Reveal } from "@/components/Reveal";
 import { projects } from "@/lib/projects";
 import heroImage from "@/assets/hero-concept.jpg";
+
+const stats = [
+  { value: "1hr", label: "Response guarantee" },
+  { value: "7-day", label: "Standard delivery" },
+  { value: "100%", label: "Project completion" },
+  { value: "You own", label: "Code, domain, hosting" },
+];
+
+const services = [
+  { title: "Custom Website Development", description: "Fast, beautiful marketing sites engineered to convert." },
+  { title: "Web Applications", description: "Scalable, secure web platforms built for real workloads." },
+  { title: "UI/UX Design", description: "Premium interfaces that turn first impressions into trust." },
+  { title: "E-Commerce Solutions", description: "High-converting storefronts with bulletproof checkout." },
+  { title: "SEO & Performance", description: "Technical audits and optimization to help you rank and convert." },
+  { title: "Maintenance & Support", description: "Ongoing care so your product keeps getting better." },
+];
+
+const process = [
+  { step: "01", title: "You send us a message", description: "Drop us a line. We reply within the hour — not the next day." },
+  { step: "02", title: "We talk through the details", description: "A short call to understand your business, your users, and exactly what needs to be built." },
+  { step: "03", title: "You approve the quote", description: "A clear written quote within 24 hours. No vague scope, no hidden charges." },
+  { step: "04", title: "We design and build", description: "We ship in tight iterative loops. You see progress, not silence." },
+  { step: "05", title: "We launch", description: "Deployment, performance, and a clean handover. You own everything." },
+  { step: "06", title: "We stay around", description: "Ongoing support and a direct line to us. If something breaks, we fix it fast." },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,32 +51,52 @@ function Index() {
 
       <main>
         {/* Hero Section */}
-        <section className="px-6 pb-20 pt-40">
+        <section className="px-6 pb-16 pt-40">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
-              <h1 className="font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl">
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl"
+              >
                 We build <span className="text-primary">solid</span> foundations for the web.
-              </h1>
-              <p className="mb-10 mt-8 max-w-xl text-xl leading-relaxed text-muted-foreground">
-                JengaWeb is a specialized design studio creating high-performance digital experiences that scale with your vision.
-              </p>
-              <div className="flex flex-wrap gap-4">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="mb-10 mt-8 max-w-xl text-xl leading-relaxed text-muted-foreground"
+              >
+                JengaWeb is a specialized design studio building premium websites and web apps that grow your business — delivered fast, communicated honestly, and built to last.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="flex flex-wrap gap-4"
+              >
                 <Link
                   to="/work"
-                  className="rounded-lg bg-primary px-8 py-4 font-bold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                  className="rounded-lg bg-primary px-8 py-4 font-bold text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20"
                 >
                   View Portfolio
                 </Link>
                 <Link
                   to="/services"
-                  className="rounded-lg bg-secondary px-8 py-4 font-bold text-secondary-foreground transition-colors hover:bg-secondary/80"
+                  className="rounded-lg bg-secondary px-8 py-4 font-bold text-secondary-foreground transition-all hover:scale-[1.03] hover:bg-secondary/80"
                 >
                   Our Process
                 </Link>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="mt-20">
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="mt-20"
+            >
               <img
                 src={heroImage}
                 alt="JengaWeb studio concept — a modern glass building with blue accents"
@@ -57,37 +104,89 @@ function Index() {
                 height={608}
                 className="h-[500px] w-full rounded-2xl object-cover"
               />
+            </motion.div>
+
+            {/* Trust stat strip */}
+            <div className="mt-14 grid grid-cols-2 gap-8 border-t border-border pt-10 md:grid-cols-4">
+              {stats.map((stat, i) => (
+                <Reveal key={stat.label} delay={i * 0.08}>
+                  <div className="font-display text-3xl font-bold text-primary md:text-4xl">{stat.value}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Portfolio Grid */}
-        <section id="work" className="bg-secondary/30 px-6 py-24">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-16 flex items-end justify-between">
+        {/* Portfolio Marquee */}
+        <section id="work" className="bg-secondary/30 py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <Reveal className="mb-12 flex items-end justify-between">
               <div className="max-w-md">
                 <h2 className="font-display text-4xl font-bold mb-4">Selected Works</h2>
                 <p className="text-muted-foreground">
                   A curation of our recent collaborations across fintech, SaaS, and luxury commerce.
                 </p>
               </div>
-              <div className="mx-12 hidden h-px flex-1 bg-border lg:block" />
-              <Link to="/work" className="group flex items-center gap-2 font-bold italic text-primary">
+              <Link to="/work" className="group hidden items-center gap-2 font-bold italic text-primary md:flex">
                 View All Projects
                 <span className="not-italic transition-transform group-hover:translate-x-1">→</span>
               </Link>
-            </div>
+            </Reveal>
+          </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {projects.map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  slug={project.slug}
-                  title={project.title}
-                  description={project.description}
-                  year={project.year}
-                  image={project.image}
-                />
+          <ProjectMarquee projects={projects} />
+
+          <div className="mt-8 px-6 text-center md:hidden">
+            <Link to="/work" className="group inline-flex items-center gap-2 font-bold italic text-primary">
+              View All Projects
+              <span className="not-italic transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section className="px-6 py-24">
+          <div className="mx-auto max-w-7xl">
+            <Reveal className="mb-16 max-w-2xl">
+              <h2 className="font-display text-4xl font-bold mb-4">Premium builds. Done to a premium standard.</h2>
+              <p className="text-muted-foreground text-lg">
+                No cutting corners, no subcontracting. Senior engineers on every project, start to finish.
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {services.map((service, i) => (
+                <Reveal key={service.title} delay={(i % 3) * 0.08}>
+                  <div className="h-full rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5">
+                    <h3 className="font-display text-xl font-bold">{service.title}</h3>
+                    <p className="mt-3 text-muted-foreground">{service.description}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="bg-secondary/30 px-6 py-24">
+          <div className="mx-auto max-w-4xl">
+            <Reveal className="mb-16 max-w-2xl">
+              <h2 className="font-display text-4xl font-bold mb-4">From first message to live product in days.</h2>
+              <p className="text-muted-foreground text-lg">Not months. Here's exactly how we work.</p>
+            </Reveal>
+
+            <div className="space-y-10">
+              {process.map((item, i) => (
+                <Reveal key={item.step} delay={i * 0.06}>
+                  <div className="flex gap-6 border-b border-border pb-10 last:border-none">
+                    <span className="font-display shrink-0 text-3xl font-bold text-primary/30">{item.step}</span>
+                    <div>
+                      <h3 className="font-display text-xl font-bold">{item.title}</h3>
+                      <p className="mt-2 text-muted-foreground">{item.description}</p>
+                    </div>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -95,7 +194,7 @@ function Index() {
 
         {/* Contact CTA */}
         <section id="contact" className="px-6 py-32">
-          <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-primary p-12 text-center text-primary-foreground md:p-24">
+          <Reveal className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-primary p-12 text-center text-primary-foreground md:p-24">
             <div className="absolute -right-32 -top-32 size-64 rounded-full bg-white/10 blur-3xl" />
             <div className="absolute -bottom-32 -left-32 size-64 rounded-full bg-black/10 blur-3xl" />
 
@@ -113,7 +212,7 @@ function Index() {
                 Get in Touch
               </a>
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
 

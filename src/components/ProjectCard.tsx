@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, year, image, slug }: ProjectCardProps) {
   return (
-    <Link to={`/work/${slug}`} className="group cursor-pointer">
+    <Link to="/work/$slug" params={{ slug }} className="group cursor-pointer">
       <div className="mb-6 aspect-square overflow-hidden rounded-2xl border border-border bg-card">
         <img
           src={image}
