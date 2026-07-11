@@ -1,6 +1,4 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { projects } from "@/lib/projects";
 
 export const Route = createFileRoute("/work/$slug")({
@@ -28,43 +26,37 @@ function ProjectDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground">
-      <Header />
+    <main className="px-6 pt-40 pb-24">
+      <div className="mx-auto max-w-7xl">
+        <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">{project.tags.join(" / ")}</span>
+        <h1 className="font-display mt-4 text-5xl font-bold tracking-tight md:text-7xl">{project.title}</h1>
+        <p className="mt-6 max-w-2xl text-xl text-muted-foreground">{project.description}</p>
 
-      <main className="px-6 pt-40 pb-24">
-        <div className="mx-auto max-w-7xl">
-          <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">{project.tags.join(" / ")}</span>
-          <h1 className="font-display mt-4 text-5xl font-bold tracking-tight md:text-7xl">{project.title}</h1>
-          <p className="mt-6 max-w-2xl text-xl text-muted-foreground">{project.description}</p>
+        <div className="mt-12 overflow-hidden rounded-2xl border border-border">
+          <img
+            src={project.image}
+            alt={project.title}
+            width={1024}
+            height={1024}
+            className="w-full object-cover"
+          />
+        </div>
 
-          <div className="mt-12 overflow-hidden rounded-2xl border border-border">
-            <img
-              src={project.image}
-              alt={project.title}
-              width={1024}
-              height={1024}
-              className="w-full object-cover"
-            />
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div>
+            <h3 className="font-display text-sm font-bold uppercase tracking-widest text-muted-foreground">Year</h3>
+            <p className="mt-2 text-lg">{project.year}</p>
           </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div>
-              <h3 className="font-display text-sm font-bold uppercase tracking-widest text-muted-foreground">Year</h3>
-              <p className="mt-2 text-lg">{project.year}</p>
-            </div>
-            <div>
-              <h3 className="font-display text-sm font-bold uppercase tracking-widest text-muted-foreground">Services</h3>
-              <p className="mt-2 text-lg">{project.tags.join(", ")}</p>
-            </div>
-            <div>
-              <h3 className="font-display text-sm font-bold uppercase tracking-widest text-muted-foreground">Client</h3>
-              <p className="mt-2 text-lg">{project.title}</p>
-            </div>
+          <div>
+            <h3 className="font-display text-sm font-bold uppercase tracking-widest text-muted-foreground">Services</h3>
+            <p className="mt-2 text-lg">{project.tags.join(", ")}</p>
+          </div>
+          <div>
+            <h3 className="font-display text-sm font-bold uppercase tracking-widest text-muted-foreground">Client</h3>
+            <p className="mt-2 text-lg">{project.title}</p>
           </div>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </main>
   );
 }
