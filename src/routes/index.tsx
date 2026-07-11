@@ -6,7 +6,6 @@ import { ProjectMarquee } from "@/components/ProjectMarquee";
 import { Reveal } from "@/components/Reveal";
 import { RotatingWord } from "@/components/RotatingWord";
 import { Magnetic } from "@/components/Magnetic";
-import { LaptopMockup } from "@/components/LaptopMockup";
 import { projects } from "@/lib/projects";
 
 const heroWords = ["solid", "scalable", "sharp", "swift"];
@@ -55,7 +54,18 @@ function Index() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative isolate overflow-hidden px-6 pb-16 pt-40">
+        <section className="relative isolate overflow-hidden px-6 pb-28 pt-40">
+          {/* Higgsfield-generated ambient background image */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-20 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url(https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260711_162727_42c5c49c-be6f-451f-998c-a1a78c4e99f2.png)",
+            }}
+          />
+          {/* Darken/blend the image into the background color so text stays readable */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/80 to-background" />
 
           {/* Ambient animated gradient blobs */}
           <motion.div
@@ -147,10 +157,6 @@ function Index() {
                   </Link>
                 </Magnetic>
               </motion.div>
-            </div>
-
-            <div className="mt-16">
-              <LaptopMockup />
             </div>
 
             {/* Trust stat strip */}
