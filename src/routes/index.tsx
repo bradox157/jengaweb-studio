@@ -8,7 +8,7 @@ import { RotatingWord } from "@/components/RotatingWord";
 import { Magnetic } from "@/components/Magnetic";
 import { projects } from "@/lib/projects";
 
-const heroWords = ["honest", "reliable", "lasting", "genuine"];
+const heroWords = ["sell", "convert", "grow", "perform"];
 
 const stats = [
   { value: "1hr", label: "Response guarantee" },
@@ -95,7 +95,7 @@ function Index() {
           <div className="relative mx-auto max-w-7xl">
             <div className="max-w-3xl">
               <h1 className="font-display flex flex-wrap items-baseline gap-x-3 gap-y-1 text-6xl font-bold leading-[0.9] tracking-tight md:gap-x-5 md:text-8xl">
-                {"We build".split(" ").map((word, i) => (
+                {"We build websites that".split(" ").map((word, i) => (
                   <motion.span
                     key={word}
                     initial={{ opacity: 0, y: 40 }}
@@ -114,7 +114,7 @@ function Index() {
                 >
                   <RotatingWord words={heroWords} />
                 </motion.span>
-                {"partnerships for your business.".split(" ").map((word, i) => (
+                {"for you.".split(" ").map((word, i) => (
                   <motion.span
                     key={word + i}
                     initial={{ opacity: 0, y: 40 }}

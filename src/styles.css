@@ -94,7 +94,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.849 0.182 162);
   --font-dm: "DM Sans", sans-serif;
-  --font-space: "Space Grotesk", sans-serif;
+  --font-space: "Fraunces", serif;
 }
 
 .dark {
