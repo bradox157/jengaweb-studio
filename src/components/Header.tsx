@@ -6,7 +6,7 @@ export function Header() {
 
   return (
     <nav className="fixed inset-x-0 top-4 z-50 px-4">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between rounded-full border border-white/15 bg-white/[0.06] px-6 shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(255,255,255,0.15)] backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between rounded-full border border-border bg-background/70 px-6 shadow-lg backdrop-blur-xl">
         <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold tracking-tighter">
           <div className="flex size-7 items-center justify-center rounded-sm bg-primary">
             <div className="size-3.5 bg-primary-foreground" />
@@ -51,7 +51,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="mx-auto mt-2 max-w-5xl rounded-3xl border border-white/15 bg-white/[0.06] px-6 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(255,255,255,0.15)] backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-2 max-w-5xl rounded-3xl border border-border bg-background/80 px-6 py-4 shadow-lg backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-4 text-sm font-medium">
             <Link to="/work" onClick={() => setMenuOpen(false)} className="transition-colors hover:text-primary">
               Work

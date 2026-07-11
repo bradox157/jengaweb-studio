@@ -65,7 +65,7 @@ function Index() {
             }}
           />
           {/* Darken/blend the image into the background color so text stays readable */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/75 to-background" />
 
           {/* Ambient animated gradient blobs */}
           <motion.div
@@ -160,7 +160,7 @@ function Index() {
             </div>
 
             {/* Trust stat strip */}
-            <div className="mt-14 grid grid-cols-2 gap-6 rounded-3xl border border-white/15 bg-white/[0.05] p-8 shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl md:grid-cols-4 md:gap-8">
+            <div className="mt-14 grid grid-cols-2 gap-6 rounded-3xl border border-border bg-card/70 p-8 shadow-lg backdrop-blur-xl md:grid-cols-4 md:gap-8">
               {stats.map((stat, i) => (
                 <Reveal key={stat.label} delay={i * 0.08}>
                   <div className="font-display text-3xl font-bold text-primary md:text-4xl">{stat.value}</div>
