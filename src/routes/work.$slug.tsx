@@ -24,6 +24,7 @@ function ProjectDetailPage() {
 
   if (!project) {
     notFound();
+    return null;
   }
 
   return (
