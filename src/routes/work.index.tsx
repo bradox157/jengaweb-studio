@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/lib/projects";
 
-export const Route = createFileRoute("/work")({
+export const Route = createFileRoute("/work/")({
   head: () => ({
     meta: [
       { title: "Work — JengaWeb" },
