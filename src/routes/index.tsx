@@ -7,7 +7,6 @@ import { Reveal } from "@/components/Reveal";
 import { RotatingWord } from "@/components/RotatingWord";
 import { Magnetic } from "@/components/Magnetic";
 import { LaptopMockup } from "@/components/LaptopMockup";
-import { HeroVideoBg } from "@/components/HeroVideoBg";
 import { projects } from "@/lib/projects";
 
 const heroWords = ["solid", "scalable", "sharp", "swift"];
@@ -57,13 +56,6 @@ function Index() {
       <main>
         {/* Hero Section */}
         <section className="relative isolate overflow-hidden px-6 pb-16 pt-40">
-          {/* Looping ambient gradient video background */}
-          <HeroVideoBg
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260711_134859_4e140d76-0d2e-4301-b293-276673b63c67.mp4"
-            className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
-          />
-          {/* Fade video to background color toward the bottom so it blends into the rest of the page */}
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background/10 via-background/40 to-background" />
 
           {/* Ambient animated gradient blobs */}
           <motion.div

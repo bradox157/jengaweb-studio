@@ -24,7 +24,7 @@ export function LaptopMockup() {
             </div>
 
             {/* Screen content — abstract "futuristic" dashboard UI */}
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-gradient-to-br from-primary via-primary to-indigo-600">
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-gradient-to-br from-primary via-emerald-500 to-teal-700">
               {/* subtle grid texture */}
               <div
                 className="absolute inset-0 opacity-10"
@@ -71,7 +71,7 @@ export function LaptopMockup() {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-3 -right-2 flex items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-bold text-foreground shadow-xl sm:px-4 sm:text-sm"
+                className="absolute -bottom-3 -right-2 flex items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-bold text-neutral-900 shadow-xl sm:px-4 sm:text-sm"
               >
                 <span className="relative flex size-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
