@@ -6,8 +6,8 @@ import { ProjectMarquee } from "@/components/ProjectMarquee";
 import { Reveal } from "@/components/Reveal";
 import { RotatingWord } from "@/components/RotatingWord";
 import { Magnetic } from "@/components/Magnetic";
+import { LaptopMockup } from "@/components/LaptopMockup";
 import { projects } from "@/lib/projects";
-import heroImage from "@/assets/hero-concept.jpg";
 
 const heroWords = ["solid", "scalable", "sharp", "swift"];
 
@@ -83,14 +83,14 @@ function Index() {
 
           <div className="relative mx-auto max-w-7xl">
             <div className="max-w-3xl">
-              <h1 className="font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl">
+              <h1 className="font-display flex flex-wrap items-baseline gap-x-3 gap-y-1 text-6xl font-bold leading-[0.9] tracking-tight md:gap-x-5 md:text-8xl">
                 {"We build".split(" ").map((word, i) => (
                   <motion.span
                     key={word}
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: i * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    className="mr-4 inline-block"
+                    className="inline-block"
                   >
                     {word}
                   </motion.span>
@@ -99,7 +99,7 @@ function Index() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.16, ease: [0.21, 0.47, 0.32, 0.98] }}
-                  className="mr-4 inline-block"
+                  className="inline-block"
                 >
                   <RotatingWord words={heroWords} />
                 </motion.span>
@@ -109,7 +109,7 @@ function Index() {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.24 + i * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    className="mr-4 inline-block"
+                    className="inline-block"
                   >
                     {word}
                   </motion.span>
@@ -148,20 +148,9 @@ function Index() {
               </motion.div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="mt-20"
-            >
-              <img
-                src={heroImage}
-                alt="JengaWeb studio concept — a modern glass building with blue accents"
-                width={1440}
-                height={608}
-                className="h-[500px] w-full rounded-2xl object-cover"
-              />
-            </motion.div>
+            <div className="mt-16">
+              <LaptopMockup />
+            </div>
 
             {/* Trust stat strip */}
             <div className="mt-14 grid grid-cols-2 gap-8 border-t border-border pt-10 md:grid-cols-4">
