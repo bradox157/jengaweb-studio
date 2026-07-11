@@ -4,8 +4,12 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProjectMarquee } from "@/components/ProjectMarquee";
 import { Reveal } from "@/components/Reveal";
+import { RotatingWord } from "@/components/RotatingWord";
+import { Magnetic } from "@/components/Magnetic";
 import { projects } from "@/lib/projects";
 import heroImage from "@/assets/hero-concept.jpg";
+
+const heroWords = ["solid", "scalable", "sharp", "swift"];
 
 const stats = [
   { value: "1hr", label: "Response guarantee" },
@@ -51,21 +55,70 @@ function Index() {
 
       <main>
         {/* Hero Section */}
-        <section className="px-6 pb-16 pt-40">
-          <div className="mx-auto max-w-7xl">
+        <section className="relative overflow-hidden px-6 pb-16 pt-40">
+          {/* Ambient animated gradient blobs */}
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-40 top-10 size-[420px] rounded-full bg-primary/20 blur-3xl"
+            animate={{ x: [0, 40, -20, 0], y: [0, 30, 60, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-[-160px] top-40 size-[380px] rounded-full bg-primary/10 blur-3xl"
+            animate={{ x: [0, -30, 20, 0], y: [0, -40, 20, 0] }}
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Dot trail accent */}
+          <div className="pointer-events-none absolute right-10 top-52 hidden gap-2 lg:flex">
+            {[0, 1, 2].map((i) => (
+              <motion.span
+                key={i}
+                className="size-2 rounded-full bg-primary/40"
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity, delay: i * 0.3, ease: "easeInOut" }}
+              />
+            ))}
+          </div>
+
+          <div className="relative mx-auto max-w-7xl">
             <div className="max-w-3xl">
-              <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl"
-              >
-                We build <span className="text-primary">solid</span> foundations for the web.
-              </motion.h1>
+              <h1 className="font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl">
+                {"We build".split(" ").map((word, i) => (
+                  <motion.span
+                    key={word}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: i * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
+                    className="mr-4 inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+                <motion.span
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.16, ease: [0.21, 0.47, 0.32, 0.98] }}
+                  className="mr-4 inline-block"
+                >
+                  <RotatingWord words={heroWords} />
+                </motion.span>
+                {"foundations for the web.".split(" ").map((word, i) => (
+                  <motion.span
+                    key={word + i}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.24 + i * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
+                    className="mr-4 inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </h1>
               <motion.p
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+                transition={{ duration: 0.7, delay: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="mb-10 mt-8 max-w-xl text-xl leading-relaxed text-muted-foreground"
               >
                 JengaWeb is a specialized design studio building premium websites and web apps that grow your business — delivered fast, communicated honestly, and built to last.
@@ -73,28 +126,32 @@ function Index() {
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+                transition={{ duration: 0.7, delay: 0.85, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="flex flex-wrap gap-4"
               >
-                <Link
-                  to="/work"
-                  className="rounded-lg bg-primary px-8 py-4 font-bold text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20"
-                >
-                  View Portfolio
-                </Link>
-                <Link
-                  to="/services"
-                  className="rounded-lg bg-secondary px-8 py-4 font-bold text-secondary-foreground transition-all hover:scale-[1.03] hover:bg-secondary/80"
-                >
-                  Our Process
-                </Link>
+                <Magnetic>
+                  <Link
+                    to="/work"
+                    className="inline-block rounded-lg bg-primary px-8 py-4 font-bold text-primary-foreground transition-shadow hover:shadow-lg hover:shadow-primary/30"
+                  >
+                    View Portfolio
+                  </Link>
+                </Magnetic>
+                <Magnetic strength={0.25}>
+                  <Link
+                    to="/services"
+                    className="inline-block rounded-lg bg-secondary px-8 py-4 font-bold text-secondary-foreground transition-colors hover:bg-secondary/80"
+                  >
+                    Our Process
+                  </Link>
+                </Magnetic>
               </motion.div>
             </div>
 
             <motion.div
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
+              transition={{ duration: 0.8, delay: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="mt-20"
             >
               <img
