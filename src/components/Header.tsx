@@ -16,14 +16,14 @@ export function Header() {
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 text-sm font-medium md:flex">
+          <Link to="/" className="transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>
+            Home
+          </Link>
           <Link to="/work" className="transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>
-            Work
+            Projects
           </Link>
-          <Link to="/services" className="transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>
-            Services
-          </Link>
-          <Link to="/" hash="contact" className="transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>
-            Contact
+          <Link to="/pricing" className="transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>
+            Pricing
           </Link>
           <a
             href="mailto:hello@jengaweb.design"
@@ -53,14 +53,14 @@ export function Header() {
       {menuOpen && (
         <div className="mx-auto mt-2 max-w-5xl rounded-3xl border border-border bg-background/80 px-6 py-4 shadow-lg backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-4 text-sm font-medium">
+            <Link to="/" onClick={() => setMenuOpen(false)} className="transition-colors hover:text-primary">
+              Home
+            </Link>
             <Link to="/work" onClick={() => setMenuOpen(false)} className="transition-colors hover:text-primary">
-              Work
+              Projects
             </Link>
-            <Link to="/services" onClick={() => setMenuOpen(false)} className="transition-colors hover:text-primary">
-              Services
-            </Link>
-            <Link to="/" hash="contact" onClick={() => setMenuOpen(false)} className="transition-colors hover:text-primary">
-              Contact
+            <Link to="/pricing" onClick={() => setMenuOpen(false)} className="transition-colors hover:text-primary">
+              Pricing
             </Link>
             <a
               href="mailto:hello@jengaweb.design"
