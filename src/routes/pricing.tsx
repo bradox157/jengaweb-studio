@@ -120,7 +120,9 @@ function PricingPage() {
                   </ul>
 
                   <a
-                    href={`mailto:hello@jengaweb.design?subject=${encodeURIComponent(`${tier.name} package inquiry`)}`}
+                    href={`https://wa.me/254700206558?text=${encodeURIComponent(`Hi JengaWeb, I'm interested in the ${tier.name} package.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`mt-8 inline-block rounded-lg px-6 py-3.5 text-center font-bold transition-all ${
                       tier.highlighted
                         ? "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/30"
@@ -134,10 +136,21 @@ function PricingPage() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
+          <div className="mt-16 flex flex-col items-center gap-2 text-center">
             <p className="text-muted-foreground">
-              Need something custom? <a href="mailto:hello@jengaweb.design" className="font-bold text-primary hover:underline">Let's talk about your project.</a>
+              Need something custom?{" "}
+              <a
+                href="https://wa.me/254700206558?text=Hi%20JengaWeb%2C%20I%27d%20like%20to%20talk%20about%20a%20custom%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-primary hover:underline"
+              >
+                Let's talk about your project.
+              </a>
             </p>
+            <a href="tel:+254700206558" className="text-sm text-muted-foreground hover:text-foreground">
+              or call us: 0700 206 558
+            </a>
           </div>
         </div>
       </main>

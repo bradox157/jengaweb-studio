@@ -26,7 +26,7 @@ export function Header() {
             Pricing
           </Link>
           <a
-            href="mailto:hello@jengaweb.design"
+            href="https://wa.me/254700206558?text=Hi%20JengaWeb%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noopener noreferrer"
             className="rounded-full bg-primary px-5 py-2.5 text-primary-foreground transition-all hover:bg-primary/90"
           >
             Start a Project
@@ -63,7 +63,7 @@ export function Header() {
               Pricing
             </Link>
             <a
-              href="mailto:hello@jengaweb.design"
+              href="https://wa.me/254700206558?text=Hi%20JengaWeb%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noopener noreferrer"
               className="rounded-full bg-primary px-5 py-2.5 text-center text-primary-foreground transition-all hover:bg-primary/90"
             >
               Start a Project

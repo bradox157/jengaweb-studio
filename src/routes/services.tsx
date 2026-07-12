@@ -64,12 +64,17 @@ function ServicesPage() {
             ))}
           </div>
 
-          <div className="mt-20 text-center">
+          <div className="mt-20 flex flex-col items-center gap-4 text-center">
             <a
-              href="mailto:hello@jengaweb.design"
+              href="https://wa.me/254700206558?text=Hi%20JengaWeb%2C%20I%27d%20like%20to%20start%20a%20project."
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block rounded-full bg-primary px-12 py-5 text-lg font-bold text-primary-foreground transition-transform hover:scale-105"
             >
-              Start a Project
+              Chat on WhatsApp
+            </a>
+            <a href="tel:+254700206558" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+              or call us: 0700 206 558
             </a>
           </div>
         </div>

@@ -276,12 +276,19 @@ function Index() {
               <p className="mx-auto mt-6 max-w-2xl text-xl text-primary-foreground/80">
                 Whether you're starting from zero or scaling to millions, we have the stack to get you there.
               </p>
-              <a
-                href="mailto:hello@jengaweb.design"
-                className="mt-12 inline-block rounded-full bg-white px-12 py-5 text-lg font-bold text-primary transition-transform hover:scale-105"
-              >
-                Get in Touch
-              </a>
+              <div className="mt-12 flex flex-col items-center gap-4">
+                <a
+                  href="https://wa.me/254700206558?text=Hi%20JengaWeb%2C%20I%27d%20like%20to%20start%20a%20project."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-full bg-white px-12 py-5 text-lg font-bold text-primary transition-transform hover:scale-105"
+                >
+                  Chat on WhatsApp
+                </a>
+                <a href="tel:+254700206558" className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground">
+                  or call us: 0700 206 558
+                </a>
+              </div>
             </div>
           </Reveal>
         </section>
