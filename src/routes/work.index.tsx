@@ -24,7 +24,7 @@ function WorkPage() {
         className="absolute inset-0 -z-20 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260712_203329_a9635c2b-95bf-49d7-a499-01e23aa56774.png)",
+            "url(https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260711_172141_369c3e48-3aab-4301-8491-921b367625e2.png)",
         }}
       />
       {/* Fade into the background color so it blends into the marquee below */}
