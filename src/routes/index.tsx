@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { Code2, Layers, Palette, ShoppingCart, TrendingUp, LifeBuoy } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProjectMarquee } from "@/components/ProjectMarquee";
@@ -18,13 +19,15 @@ const stats = [
 ];
 
 const services = [
-  { title: "Custom Website Development", description: "Fast, beautiful marketing sites engineered to convert." },
-  { title: "Web Applications", description: "Scalable, secure web platforms built for real workloads." },
-  { title: "UI/UX Design", description: "Premium interfaces that turn first impressions into trust." },
-  { title: "E-Commerce Solutions", description: "High-converting storefronts with bulletproof checkout." },
-  { title: "SEO & Performance", description: "Technical audits and optimization to help you rank and convert." },
-  { title: "Maintenance & Support", description: "Ongoing care so your product keeps getting better." },
+  { title: "Custom Website Development", description: "Fast, beautiful marketing sites engineered to convert.", icon: "Code2" },
+  { title: "Web Applications", description: "Scalable, secure web platforms built for real workloads.", icon: "Layers" },
+  { title: "UI/UX Design", description: "Premium interfaces that turn first impressions into trust.", icon: "Palette" },
+  { title: "E-Commerce Solutions", description: "High-converting storefronts with bulletproof checkout.", icon: "ShoppingCart" },
+  { title: "SEO & Performance", description: "Technical audits and optimization to help you rank and convert.", icon: "TrendingUp" },
+  { title: "Maintenance & Support", description: "Ongoing care so your product keeps getting better.", icon: "LifeBuoy" },
 ];
+
+const serviceIcons = { Code2, Layers, Palette, ShoppingCart, TrendingUp, LifeBuoy };
 
 const process = [
   { step: "01", title: "You send us a message", description: "Drop us a line. We reply within the hour — not the next day." },
@@ -209,14 +212,29 @@ function Index() {
             </Reveal>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {services.map((service, i) => (
-                <Reveal key={service.title} delay={(i % 3) * 0.08}>
-                  <div className="h-full rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5">
-                    <h3 className="font-display text-xl font-bold">{service.title}</h3>
-                    <p className="mt-3 text-muted-foreground">{service.description}</p>
-                  </div>
-                </Reveal>
-              ))}
+              {services.map((service, i) => {
+                const Icon = serviceIcons[service.icon as keyof typeof serviceIcons];
+                return (
+                  <Reveal key={service.title} delay={(i % 3) * 0.08}>
+                    <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
+                      {/* Accent glow that appears on hover */}
+                      <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-primary/0 blur-2xl transition-colors duration-500 group-hover:bg-primary/15" />
+
+                      <div className="relative flex items-start justify-between">
+                        <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                          <Icon className="size-6" strokeWidth={2} />
+                        </div>
+                        <span className="font-display text-3xl font-bold text-muted-foreground/20">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+
+                      <h3 className="font-display relative mt-6 text-xl font-bold">{service.title}</h3>
+                      <p className="relative mt-3 text-muted-foreground">{service.description}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
