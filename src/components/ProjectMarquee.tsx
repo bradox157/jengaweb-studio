@@ -1,5 +1,3 @@
-import { Link } from "@tanstack/react-router";
-
 interface MarqueeProject {
   slug: string;
   title: string;
@@ -30,10 +28,11 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
 
       <div className="flex w-max animate-marquee gap-6 group-hover/marquee:[animation-play-state:paused]">
         {loop.map((project, i) => (
-          <Link
+          <a
             key={`${project.slug}-${i}`}
-            to="/work/$slug"
-            params={{ slug: project.slug }}
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group/card relative block w-[320px] shrink-0 overflow-hidden rounded-2xl border border-border bg-card md:w-[380px]"
           >
             <div className="aspect-[4/3] overflow-hidden">
@@ -69,7 +68,7 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 17L17 7M17 7H7M17 7v10" />
               </svg>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </div>
