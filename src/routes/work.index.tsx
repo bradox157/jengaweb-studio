@@ -17,7 +17,7 @@ export const Route = createFileRoute("/work/")({
 
 function WorkPage() {
   return (
-    <main className="relative overflow-hidden pb-24 pt-40">
+    <main className="relative isolate overflow-hidden pb-24 pt-40">
       {/* Higgsfield-generated ambient background image */}
       <div
         aria-hidden="true"
