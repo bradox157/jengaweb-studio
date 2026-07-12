@@ -24,11 +24,11 @@ function WorkPage() {
         className="absolute inset-0 -z-20 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260712_202504_c0274e42-d7c2-48bb-916a-906842c4febe.png)",
+            "url(https://d8j0ntlcm91z4.cloudfront.net/user_3GMM1ZXfFqeRT7y5z9MLauQ1U80/hf_20260712_203329_a9635c2b-95bf-49d7-a499-01e23aa56774.png)",
         }}
       />
       {/* Fade into the background color so it blends into the marquee below */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/40 to-background" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-background" />
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 max-w-3xl">
