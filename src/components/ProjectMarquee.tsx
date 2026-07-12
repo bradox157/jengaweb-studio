@@ -5,11 +5,17 @@ interface MarqueeProject {
   title: string;
   description: string;
   image: string;
+  url?: string;
   tags?: string[];
 }
 
 interface ProjectMarqueeProps {
   projects: MarqueeProject[];
+}
+
+function getDomain(url?: string) {
+  if (!url) return "";
+  return url.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
 }
 
 export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
@@ -28,7 +34,7 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
             key={`${project.slug}-${i}`}
             to="/work/$slug"
             params={{ slug: project.slug }}
-            className="group/card relative w-[320px] shrink-0 overflow-hidden rounded-2xl border border-border bg-card md:w-[380px]"
+            className="group/card relative block w-[320px] shrink-0 overflow-hidden rounded-2xl border border-border bg-card md:w-[380px]"
           >
             <div className="aspect-[4/3] overflow-hidden">
               <img
@@ -41,20 +47,27 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
               />
             </div>
 
-            {/* Scrim ensures the glass caption stays legible on bright photos */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/50 to-transparent" />
+            {/* Scrim for legibility */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-            {/* Liquid glass caption panel */}
-            <div className="absolute inset-x-3 bottom-3 flex items-start justify-between gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_0_rgba(255,255,255,0.25)] backdrop-blur-xl">
-              <div>
-                <h3 className="font-display text-base font-bold text-white drop-shadow-sm">{project.title}</h3>
-                <p className="text-xs text-white/80 drop-shadow-sm">{project.description}</p>
-              </div>
-              {project.tags?.[0] && (
-                <span className="shrink-0 rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
-                  {project.tags[0]}
-                </span>
-              )}
+            {/* Category tag, top-left */}
+            {project.tags?.[0] && (
+              <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
+                {project.tags[0]}
+              </span>
+            )}
+
+            {/* Title + domain, bottom-left */}
+            <div className="absolute bottom-4 left-4 right-16">
+              <h3 className="font-display text-lg font-bold text-white drop-shadow-sm">{project.title}</h3>
+              <p className="text-xs text-white/70">{getDomain(project.url)}</p>
+            </div>
+
+            {/* Circular arrow button, bottom-right */}
+            <div className="absolute bottom-4 right-4 flex size-9 items-center justify-center rounded-full bg-white text-foreground shadow-lg transition-transform group-hover/card:scale-110">
+              <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
             </div>
           </Link>
         ))}
