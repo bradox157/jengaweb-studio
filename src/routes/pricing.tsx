@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
@@ -72,19 +73,38 @@ function PricingPage() {
       <main className="px-6 pb-24 pt-40">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 max-w-3xl">
-            <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">Pricing</span>
-            <h1 className="font-display mt-4 text-5xl font-bold tracking-tight md:text-7xl">
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="block text-sm font-medium uppercase tracking-widest text-muted-foreground"
+            >
+              Pricing
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="font-display mt-4 text-5xl font-bold tracking-tight md:text-7xl"
+            >
               Simple pricing. No surprises.
-            </h1>
-            <p className="mt-6 max-w-2xl text-xl text-muted-foreground">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="mt-6 max-w-2xl text-xl text-muted-foreground"
+            >
               Pick the package that fits where your business is today. Every tier includes clear communication and a fixed timeline — no hidden fees.
-            </p>
+            </motion.p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {tiers.map((tier, i) => (
               <Reveal key={tier.name} delay={i * 0.1}>
-                <div
+                <motion.div
+                  whileHover={{ y: -8, scale: tier.highlighted ? 1.05 : 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className={`relative flex h-full flex-col rounded-3xl border p-8 ${
                     tier.highlighted
                       ? "border-primary bg-card shadow-xl shadow-primary/10 md:scale-105"
@@ -92,9 +112,14 @@ function PricingPage() {
                   }`}
                 >
                   {tier.highlighted && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.5, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.4, type: "spring", stiffness: 300, damping: 15 }}
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground"
+                    >
                       Most Popular
-                    </span>
+                    </motion.span>
                   )}
 
                   <h3 className="font-display text-2xl font-bold">{tier.name}</h3>
@@ -105,8 +130,15 @@ function PricingPage() {
                   </div>
 
                   <ul className="mt-8 flex-1 space-y-3">
-                    {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm">
+                    {tier.features.map((feature, fi) => (
+                      <motion.li
+                        key={feature}
+                        initial={{ opacity: 0, x: -8 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + fi * 0.05, duration: 0.4 }}
+                        className="flex items-start gap-3 text-sm"
+                      >
                         <svg
                           className="mt-0.5 size-4 shrink-0 text-primary"
                           fill="none"
@@ -116,23 +148,25 @@ function PricingPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                         </svg>
                         <span className="text-foreground">{feature}</span>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
 
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                     href={`https://wa.me/254700206558?text=${encodeURIComponent(`Hi JengaWeb, I'm interested in the ${tier.name} package.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mt-8 inline-block rounded-lg px-6 py-3.5 text-center font-bold transition-all ${
+                    className={`mt-8 inline-block rounded-lg px-6 py-3.5 text-center font-bold transition-shadow ${
                       tier.highlighted
                         ? "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/30"
                         : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     }`}
                   >
                     Get Started
-                  </a>
-                </div>
+                  </motion.a>
+                </motion.div>
               </Reveal>
             ))}
           </div>
