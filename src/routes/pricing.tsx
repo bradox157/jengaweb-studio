@@ -18,13 +18,13 @@ export const Route = createFileRoute("/pricing")({
 const tiers = [
   {
     name: "Basic",
-    price: "$499",
-    tagline: "For a clean, professional first web presence.",
+    price: "KES 13,000",
+    tagline: "A simple, professional landing page to get your business online.",
     features: [
-      "Single-page website",
+      "Single-page landing site",
       "Mobile-responsive design",
-      "Up to 5 sections",
-      "Basic contact form",
+      "Up to 5 sections (hero, about, services, testimonials, contact)",
+      "WhatsApp / contact form integration",
       "3-day delivery",
       "1 round of revisions",
     ],
@@ -32,11 +32,12 @@ const tiers = [
   },
   {
     name: "Standard",
-    price: "$1,499",
-    tagline: "For growing businesses that need more than one page.",
+    price: "KES 25,000",
+    tagline: "A multi-page website built for growing and e-commerce businesses.",
     features: [
       "Up to 6 custom pages",
-      "Custom design system",
+      "Great for e-commerce & product catalogs",
+      "Custom, professional design system",
       "Basic SEO setup",
       "CMS for easy content edits",
       "7-day delivery",
@@ -47,12 +48,12 @@ const tiers = [
   },
   {
     name: "Premium",
-    price: "$3,999",
-    tagline: "For ambitious products and full web applications.",
+    price: "KES 50,000",
+    tagline: "Your website plus AI agent automation for your business.",
     features: [
-      "Unlimited custom pages",
-      "Full web app / dashboard build",
-      "Advanced animations & interactions",
+      "Everything in Standard",
+      "Custom AI agent for your business (support, bookings, lead capture)",
+      "Workflow & task automation setup",
       "API & third-party integrations",
       "Priority delivery timeline",
       "Unlimited revisions during build",
